@@ -4,9 +4,12 @@ function WordGame(){
     var m_guesses = [];
     var m_answer = '';
     var m_message = '';
-    var m_resetInterval = setInterval(function(){ resetGameInactive(); }, GAME_RESET_TIME);
+    var m_resetInterval = null;
 
     var getTimeLeft = function() {
+        if (!m_resetInterval) {
+            return GAME_RESET_TIME / 1000;
+        }
         return Math.ceil((m_resetInterval._idleStart + m_resetInterval._idleTimeout - Date.now()) / 1000);
     }
 
@@ -16,6 +19,8 @@ function WordGame(){
         m_guesses = [];
         m_answer = getNewAnswerWord();
         console.log("New answer:", m_answer);
+        clearInterval(m_resetInterval);
+        m_resetInterval = null;
     };
 
     var resetGameInactive = function() {
@@ -74,8 +79,6 @@ function WordGame(){
             if (m_answer == guess) {
                 resetGame();
                 m_message = user + " got the word " + guess;
-                clearInterval(m_resetInterval);
-                m_resetInterval = setInterval(function(){ resetGameInactive(); }, GAME_RESET_TIME);
                 return "Got it!";
             }
             else {
