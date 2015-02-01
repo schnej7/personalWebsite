@@ -1,0 +1,99 @@
+extends static_layout
+
+block pageBody
+  script(src='js/emulator/utils.js')
+  script(src='js/emulator/jquery.js')
+  script(src='js/emulator/bootstrap.js')
+  script(src='js/emulator/bootstrap-transitions.js')
+  script(src='js/emulator/animate.js')
+  script(src='js/emulator/emulator.js')
+  script(src='js/emulator/fileHelper.js')
+  script(src='js/emulator/roms.js')
+  script(src='js/emulator/display.js')
+  link(href='css/emulator/style.css', rel='stylesheet', type='text/css')
+  .main
+    .padded.container
+      h1 Chip-8 Emulator
+    br
+    #mainGameArea.container
+      #viewport.canvasWidth.centered.screen
+      br
+      #accordion.canvasWidth.center.centered.accordion.alert.alert-info
+        .accordion-heading
+          a.accordion-toggle(data-toggle='collapse', data-parent='#accordion', href='#debug')
+            | Debug Menu
+        #debug.accordion-body.collapse
+          #registers.row-fluid
+            .btn-group.span4
+              button#enableConsole.btn.btn-info(type='button', onclick='enableConsole()') Enable Console
+              button#pause.btn.btn-info(type='button', onclick='pauseEmulation()') Pause
+              button#step.btn.btn-info(type='button', onclick='step()') Step
+            .span6
+              table.table
+                tr
+                  td#V0
+                  td#V1
+                  td#V2
+                  td#V3
+                tr
+                  td#V4
+                  td#V5
+                  td#V6
+                  td#V7
+                tr
+                  td#V8
+                  td#V9
+                  td#VA
+                  td#VB
+                tr
+                  td#VC
+                  td#VD
+                  td#VE
+                  td#VF
+      br
+      .row
+        .col-sm-3 
+          .input-group
+            input#txtColorOn.form-control(size='3', type='text', value='FFF')
+            span.input-group-btn
+                button.btn.btn-default(type='button', onclick='changeOn()') Change + color
+        .col-sm-3 
+          .input-group
+            input#txtColorOff.form-control(size='3', type='text', value='000')
+            span.input-group-btn
+                button.btn.btn-default(type='button', onclick='changeOff()') Change - color
+        .col-sm-3 
+          .input-group
+            input#txtTimeout.form-control(size='3', type='text', value='0')
+            span.input-group-btn
+                button.btn.btn-default(type='button', onclick='changeTimeout()') Change Timeout
+        .col-sm-3 
+          .input-group
+            input#txtTimer.form-control(size='3', type='text', value='60')
+            span.input-group-btn
+                button.btn.btn-default(type='button', onclick='changeTimer()') Event Timers (Hz)
+      br
+      .row
+        .offset3.col-sm-6(style='font-family: monospace;')
+          p Keypad:
+          | +---+---+---+---+
+          br
+          | | 1 | 2 | 3 | 4 |
+          br
+          | +---+---+---+---+
+          br
+          | | q | w | e | r |
+          br
+          | +---+---+---+---+
+          br
+          | | a | s | d | f |
+          br
+          | +---+---+---+---+
+          br
+          | | z | x | c | v |
+          br
+          | +---+---+---+---+
+          br
+        .col-sm-6
+          input#files(type='file', name='file')
+          select#games

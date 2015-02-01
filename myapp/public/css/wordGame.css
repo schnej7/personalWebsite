@@ -1,0 +1,56 @@
+.head {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2em;
+}
+
+.gameBody .word {
+  display: block;
+  border: 1px solid transparent;
+  margin: auto auto;
+  width: 242px;
+  height: 42px;
+}
+
+.gameBody .correctNum,
+.gameBody .letter {
+  display: inline-block;
+  float: left;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  line-height: 40px;
+  text-align: center;
+  background: #eee;
+}
+
+.gameBody .letter {
+  border-left: none;
+}
+.gameBody .letter.selected {
+  background: #cec;
+}
+.gameBody .correctNum {
+  border-radius: 20px 0 0 20px;
+  border-color: transparent;
+  border: 1px solid #fff;
+  border-right: 2px solid #fff;
+}
+.gameBody .messages {
+  width: 500px;
+  height: 50px;
+  margin: 0 auto;
+}
+.gameBody .userInfo,
+.gameBody .inputArea {
+  width: 200px;
+  margin: 20px auto;
+}
+
+.gameBody .userGuess {
+  width: 100%;
+}
+
+.gameBody .guesses {
+}

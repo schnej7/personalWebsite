@@ -1,0 +1,29 @@
+.contactInfo {
+  white-space: pre;
+}
+
+.content table,
+.contactInfo table {
+  width: 100%;
+}
+
+.contactInfo tr {
+  vertical-align: top;
+}
+
+.content .doubleCol div {
+  display: inline-block;
+  float: left;
+}
+
+.content .doubleCol .bold {
+  margin-right: 7px;
+}
+
+.content .bold {
+  font-weight: bold;
+}
+
+.rightCol {
+  text-align: right;
+}

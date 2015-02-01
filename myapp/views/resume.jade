@@ -1,0 +1,116 @@
+extends static_layout
+
+mixin tableSectionTitle(sectionTitle)
+    tr
+        td
+            h3 #{sectionTitle}
+
+mixin tableThreeCol(one, two, three)
+    tr
+        td.doubleCol
+            div.bold #{one} 
+            div #{two}
+        td.rightCol #{three}
+
+mixin tableTwoCol(one, two)
+    tr
+        td.doubleCol
+            div.bold #{one}
+            div - #{two}
+
+block pageBody
+    link(rel='stylesheet', href='/css/resume.css')
+    div.container
+        div.contactInfo
+            h1 Jerry Schneider
+            table
+                tr
+                    td
+                        address
+                            | Apt. 1H
+                            | 10 Centre St.
+                            | Cambridge, MA 01239
+                    td.rightCol
+                        a(href="tel://1-703-963-9570") (703) 963 9570
+                        br
+                        a(href="mailto:schnej7@gmail.com") schnej7@gmail.com
+
+        div.content
+            table
+                +tableSectionTitle("Employment")
+                +tableThreeCol("Software Engineer", "TripAdvisor, Newton, MA", "January 2014 - Present")
+                tr
+                    td
+                        ul
+                            li Redesign and rewrite the photo lightbox experience
+                            li Work on and maintain media on a large scale
+                            li Work on optimizing the restaurant booking process
+                            li Work on generally improving the site experience
+                            li Work on internal tools to help optimize development for other engineers
+
+                +tableThreeCol("Engineering Intern", "TripAdvisor, Newton, MA", "May 2012 - August 2013")
+                tr
+                    td
+                        ul
+                            li Work on interfacing with Facebook's Graph API
+                            li Work on storage of social data and providing data to Facebook
+                            li Work on webpage CSS and JavaScript modification 
+                            li Work on back end Java servlets
+                            li Fix bugs on social media pages
+
+                +tableThreeCol("Flight Software Intern", "Skybox Imaging, Mountain View, CA", "May 2011 - August 2011")
+                tr
+                    td
+                        ul
+                            li Create a C++ library to interface with LabView and ActiveMQ to display satelite telemetry
+                            li Create displays using LabView to display satelite telemetry
+                            li Create development tools using Python to scan and report on problems with the satelite code
+                            li Set up Hudson (Jenkins) project and write GDB scripts to automate nightly builds and run and report unit tests
+                            li Write AceUnit Unit tests for satelite code
+                            li Update documentation based on satelite code
+
+                +tableThreeCol("Undergraduate Tutor", "RPI Computer Science Department, Troy, NY", "September 2010 - May 2012")
+                tr
+                    td
+                        ul
+                            li Create a C++ library to interface with LabView and ActiveMQ to display satelite telemetry
+
+                +tableSectionTitle("Relevant Coursework")
+                +tableTwoCol("Network Programming", "Knowladge of HTTP and socket programming and JavaScript and HTML 5")
+                +tableTwoCol("Software Design and Documentation", "Knowledge of deign patterns and documentation")
+                +tableTwoCol("Data Structures", "Knowledge of the creation of data structures and their implementation")
+                +tableTwoCol("Introduction to Algorithms", "Creating efficient algorithms and analyzing the efficiency of algorithms")
+                +tableTwoCol("Computer Organization", "Introduciton to computer organization, assembler language, and operating systems")
+                +tableTwoCol("Programming in Java", "Class declarations and definitions, graphics, threads, exceptions, and writing Web Applets")
+                +tableTwoCol("Parallel Programming", "Techniques and meathods for parallel programming including parallel algorithms")
+                +tableTwoCol("Operating Systems", "Computer operating systems including design and implementation")
+                +tableTwoCol("Machine Learning", "Implement and critique basic models of learning from data")
+                +tableTwoCol("Data Mining", "Data mining and knowledge discovery in databases")
+                +tableTwoCol("Database Systems", "Database design, database system architecture, SQL, normalization techniques")
+                +tableTwoCol("Programming Languages", "Language syntax and semantics, types and parameter passing, and programming paradigms")
+
+                +tableSectionTitle("Software Skills")
+                tr
+                    td
+                        ul
+                            li Languages: Java, C, C++, Python, MPI, GDB Scripting, x86, MIPS, Basic, HTML, CSS, JavaScript, PHP, and XML
+                            li Proficency with the use of Linux and Unix based systems
+                            li Proficency with version control (Git and Subversion)
+
+                +tableSectionTitle("Achievements")
+                tr
+                    td
+                        ul
+                            li RPI Founders Award of Excellence 2011
+                            li Hollingsworth Prize
+                            li Dean's list (every semester)
+                            li Rensselaer Leadership Award
+
+                +tableSectionTitle("Computer Science Academic Experience")
+                tr
+                    td
+                        ul
+                            li UPE Vice President (Computer Science Honor Society)
+                            li Computer Science Undergraduate Curriculum Committee Student Representitive (fall 2011 - spring 2012)
+                            li Mentor for Rensselaer Center for Open Source Software
+                            li Computer Science Undergraduate Tutor and Mentor

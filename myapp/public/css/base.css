@@ -1,0 +1,24 @@
+.navPlaceholder {
+  height: 50px;
+}
+
+.navbar-header {
+  z-index: 1;
+}
+
+.navbar {
+  margin: 0;
+  min-height: initial;
+  height: 50px;
+}
+
+.headshot {
+  width: 360px;
+  border-radius: 180px;
+  padding: 1px;
+  border: 1px solid #666;
+}
+
+footer {
+  margin-bottom: 20px;
+}

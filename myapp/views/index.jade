@@ -1,0 +1,47 @@
+extends static_layout
+
+block pageBody
+    div.jumbotron
+        div.container
+            h1 Jerry's Homepage
+            p This is Jerry's Homepage
+
+    div.container
+        div.row
+            div.col-md-4
+                h2 Projects
+                p
+                    |Check out my open source projects on 
+                    a(href='https://github.com/schnej7') GitHub.
+                    ul
+                        li
+                            a(href='/emulator') Chip8 Emulator 
+                            | - A Chip8 emulator written in javascript including some fun games.
+                        li
+                            a(href='http://schnej7.github.io/InstagramApiJavascriptLib/') Instagram API Javascript Lib 
+                            | - A web portal for viewing your instagram pictures.
+                        li
+                            a(href='https://robotgame.net/user/9513') Robot Game 
+                            | - My AIs for a game where robots fight each other.
+                        li
+                            a(href='http://www.rpscontest.com/authorSearch?name=Jerry') RPS Contest 
+                            | - My AIs for a simulation where 2 opponents play 1,000 games of "Rock, Paper, Scissors" against each other.
+                        li
+                            a(href='https://github.com/schnej7/markov') Python Markov Lib 
+                            | - A Marcov chain library and some fun word games which use it.
+                        li
+                            a(href='https://github.com/schnej7/Blue-Mesh') BlueMesh 
+                            | - An Android library which uses Bluetooth to create a wireless MESH network 
+                            a(href='https://play.google.com/store/apps/details?id=com.bluemesh.bmchat&hl=en') and example app.
+            div.col-md-4
+                h2 About Me
+                p 
+                    |I am a young professional currently working at 
+                    a(href='http://tripadvisor.com') TripAdvisor 
+                    | as a Software Engineer.  I graduated RPI in 2013 with a BS in Computer Science and an MS in Information Technology.  In my free time I like fishing and watching movies. 
+                    a(href='/resume') Check out my Resume too.
+                h2 Contact Me
+                p
+                    |You can contact me via email at schnej7[at]gmail[dot]com.
+            div.col-md-4
+                img(src="/images/jerry2.jpg").headshot

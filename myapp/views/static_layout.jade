@@ -1,0 +1,24 @@
+extends base
+
+block bodyContent
+    +header
+
+    block pageBody
+
+    +footer
+
+mixin header
+    nav.navbar.navbar-inverse.navbar-fixed-top
+        div.container
+            div.navbar
+                div.navbar-header
+                    a(href='/').navbar-brand Jerry Schneider
+                ul.nav.navbar-nav
+                    li
+                        a(href='/resume') Resume
+    div.navPlaceholder
+
+mixin footer
+    hr
+    div.container
+        footer Copyright &copy #{year} Jerry Schneider

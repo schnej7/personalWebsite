@@ -1,0 +1,129 @@
+extends static_layout
+
+block pageBody
+    <script src='js/emulator/utils.js'></script>
+    <script src='js/emulator/jquery.js'></script>
+    <script src='js/emulator/bootstrap.js'></script>
+    <script src='js/emulator/bootstrap-transitions.js'></script>
+    <script src='js/emulator/animate.js'></script>
+    <script src='js/emulator/emulator.js'></script>
+    <script src='js/emulator/fileHelper.js'></script>
+    <script src='js/emulator/roms.js'></script>
+    <script src='js/emulator/display.js'></script>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/emulator/style.css" rel="stylesheet" type="text/css">
+    <div class="main">
+        <div class="padded container thumbnail">
+            <h1>Chip-8 Emulator</h1>
+        </div>
+        <br />
+        <div class="container well">
+            <div class="canvasWidth centered screen" id="viewport"></div>
+            <br />
+            <div class="canvasWidth center centered accordion alert alert-info" id="accordion">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#debug">
+                        Debug Menu
+                    </a>
+                </div>
+                <div id="debug" class="accordion-body collapse">
+                    <div id="registers" class="row-fluid">
+                        <div class="btn-group span4">
+                            <button id="enableConsole" class="btn btn-info" type="button" onclick="enableConsole()">Enable Console</button>
+                            <button id="pause" class="btn btn-info" type="button" onClick="pauseEmulation()">Pause</button>
+                            <button id="step" class="btn btn-info" type="button" onClick="step()">Step</button>
+                        </div>
+                        <div class="span6">
+                            <table class="table">
+                                <tr>
+                                    <td id="V0">
+                                    </td>
+                                    <td id="V1">
+                                    </td>
+                                    <td id="V2">
+                                    </td>
+                                    <td id="V3">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="V4">
+                                    </td>
+                                    <td id="V5">
+                                    </td>
+                                    <td id="V6">
+                                    </td>
+                                    <td id="V7">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="V8">
+                                    </td>
+                                    <td id="V9">
+                                    </td>
+                                    <td id="VA">
+                                    </td>
+                                    <td id="VB">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="VC">
+                                    </td>
+                                    <td id="VD">
+                                    </td>
+                                    <td id="VE">
+                                    </td>
+                                    <td id="VF">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="span3">
+                    <div class="input-append">
+                        <input class="span1" id="txtColorOn" size="3" type="text" value="FFF"><button class="btn" type="button" onclick="changeOn()">Change + color</button>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="input-append">
+                        <input class="span1" id="txtColorOff" size="3" type="text" value="000"><button class="btn" type="button" onclick="changeOff()">Change - color</button>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="input-append">
+                        <input class="span1" id="txtTimeout" size="3" type="text" value="0"><button class="btn" type="button" onclick="changeTimeout()">Change Timeout</button>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="input-append">
+                        <input class="span1" id="txtTimer" size="3" type="text" value="60"><button class="btn" type="button" onclick="changeTimer()">Event Timers (Hz)</button>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="offset3 span3" style="font-family: monospace;">
+                    <p>Keypad:</p>
+                    +---+---+---+---+<br />
+                    | 1 | 2 | 3 | 4 |<br />
+                    +---+---+---+---+<br />
+                    | q | w | e | r |<br />
+                    +---+---+---+---+<br />
+                    | a | s | d | f |<br />
+                    +---+---+---+---+<br />
+                    | z | x | c | v |<br />
+                    +---+---+---+---+<br />
+                </div>
+                <div class="span4">
+                    <input type="file" id="files" name="file" />
+                    <select id="games"></select>
+                </div>
+            </div>
+        </div>
+        <div class="container well">
+            <p>Chip-8 Emulator written by <a href="http://www.jerry-schneider.com">Jerry Schneider</a></p>
+        </div>
+    </div>
