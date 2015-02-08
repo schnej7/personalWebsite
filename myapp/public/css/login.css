@@ -1,0 +1,27 @@
+.loginWidget {
+  width: 300px;
+  margin: auto;
+  padding: 15px;
+  background: #eee;
+  border-radius: 5px;
+}
+
+.loginWidget label {
+  width: 80px;
+}
+
+.loginWidget input {
+  width: 150px;
+}
+
+.loginWidget input.submit {
+  display: block;
+  margin: 10px auto 0;
+}
+
+.loginWidget a.otherOption {
+  text-align: center;
+  display: block;
+  width: 100px;
+  margin: auto;
+}

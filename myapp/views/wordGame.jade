@@ -10,7 +10,11 @@ block pageBody
         div.messages.alert.alert-info Connecting...
 
         div.userInfo Username: 
-            input.userName
+            #user
+                if user != null
+                    input.userName(value="#{user.local.email}", readonly)
+                else
+                    input.userName
 
         div.inputArea
             input.userGuess

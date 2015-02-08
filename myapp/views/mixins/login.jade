@@ -1,10 +1,23 @@
 mixin login
-    form(action="/login", method="post")
-        div.username
-            label Username
-            input(type="text", name="username")
-        div.password
-            label Password
-            input(type="password", name="password")
-        div.submit
-            input(type="submit", value="Log In")
+    link(rel='stylesheet', href='/css/login.css')
+    div.loginWidget
+        form(action="/login", method="post")
+            +formContents("Log In")
+        a(href="/signup").otherOption Sign Up
+
+mixin signup
+    link(rel='stylesheet', href='/css/login.css')
+    div.loginWidget
+        form(action="/signup", method="post")
+            +formContents("Sign Up")
+        a(href="/login").otherOption Log In
+
+mixin formContents(submitText)
+    div.username
+        label Username
+        input(type="text", name="email")
+    div.password
+        label Password
+        input(type="password", name="password")
+    div.submit
+        input(type="submit", value="#{submitText}").submit
