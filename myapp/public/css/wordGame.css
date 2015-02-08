@@ -5,6 +5,10 @@
   font-size: 2em;
 }
 
+.gameBody .userName {
+  display: none;
+}
+
 .gameBody .word {
   display: block;
   border: 1px solid transparent;

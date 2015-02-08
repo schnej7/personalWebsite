@@ -19,7 +19,10 @@ mixin header
                     li
                         a(href='/wordGame') Word Game
                     li
-                        a(href='/login') Log In
+                        if auth == null
+                            a(href='/login') Log In
+                        else
+                            a(href='/logout') Log Out
     div.navPlaceholder
 
 mixin footer
