@@ -2,6 +2,6 @@ extends static_layout
 
 block pageBody
     div.container
-        div.id User ID: #{user._id}
+        div.username User Name: #{user.local.username}
         div.email Email: #{user.local.email}
         a(href="/logout").logout Log Out

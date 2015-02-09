@@ -24,18 +24,11 @@ module.exports = function(app, passport) {
       );
     });
 
-    app.get('/wordGameNoAuth', function (req, res) {
+    app.get('/wordGame', function (req, res) {
       res.render(
         'wordGame',
         jadeObject.basic(req, "Jerry's Word Game")
       );
-    });
-
-    app.get('/wordGame', isLoggedInWordGame, function(req, res) {
-        res.render(
-          'wordGame',
-          jadeObject.auth(req, "Jerry's Word Game")
-        );
     });
 
     app.get('/wordGameAjax', function (req, res) {

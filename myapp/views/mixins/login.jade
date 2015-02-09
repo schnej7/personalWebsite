@@ -9,12 +9,15 @@ mixin signup
     link(rel='stylesheet', href='/css/login.css')
     div.loginWidget
         form(action="/signup", method="post")
+            div.username
+                label Username
+                input(type="text", name="username")
             +formContents("Sign Up")
         a(href="/login").otherOption Log In
 
 mixin formContents(submitText)
-    div.username
-        label Username
+    div.email
+        label Email
         input(type="text", name="email")
     div.password
         label Password

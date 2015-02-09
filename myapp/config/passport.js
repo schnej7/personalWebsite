@@ -6,6 +6,8 @@ var LocalStrategy   = require('passport-local').Strategy;
 // load up the user model
 var User            = require('../app/models/user');
 
+var validator = require('email-validator');
+
 // expose this function to our app using module.exports
 module.exports = function(passport) {
 
@@ -45,16 +47,22 @@ module.exports = function(passport) {
         // User.findOne wont fire unless data is sent back
         process.nextTick(function() {
 
+        var username = req.body.username;
+
+        if( !validator.validate(email) ) {
+            return done(null, false, req.flash('signupMessage', 'That email is not valid.'));
+        }
+
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        User.findOne({ 'local.email' :  email }, function(err, user) {
+        User.findOne({$or: [{ 'local.email' :  email}, {'local.username' : username }]}, function(err, user) {
             // if there are any errors, return the error
             if (err)
                 return done(err);
 
             // check to see if theres already a user with that email
             if (user) {
-                return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                return done(null, false, req.flash('signupMessage', 'That email or username is already taken.'));
             } else {
 
                 // if there is no user with that email
@@ -64,6 +72,7 @@ module.exports = function(passport) {
                 // set the user's local credentials
                 newUser.local.email    = email;
                 newUser.local.password = newUser.generateHash(password);
+                newUser.local.username = username;
 
                 // save the user
                 newUser.save(function(err) {

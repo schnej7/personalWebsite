@@ -6,6 +6,14 @@
   z-index: 1;
 }
 
+.navbar-nav {
+  width: 75%;
+}
+
+.navbar li.right {
+  float: right;
+}
+
 .navbar {
   margin: 0;
   min-height: initial;

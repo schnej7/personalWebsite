@@ -18,11 +18,14 @@ mixin header
                         a(href='/resume') Resume
                     li
                         a(href='/wordGame') Word Game
-                    li
-                        if auth == null
+                    if auth == null
+                        li
                             a(href='/login') Log In
-                        else
+                    else
+                        li.right
                             a(href='/logout') Log Out
+                        li.right
+                            a(href='/profile') #{user.local.username}
     div.navPlaceholder
 
 mixin footer
