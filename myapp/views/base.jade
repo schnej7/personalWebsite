@@ -13,11 +13,32 @@ mixin bootstrap
 mixin jquery
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+mixin fbSDK()
+    script(src="js/social/facebook.js")
+
+mixin seo
+  meta(charset="utf-8")
+  meta(name="description" content="#{socialDescription}")
+  link(rel="author" href="https://plus.google.com/104601552941402609417")
+  meta(property="og:title" content="#{socialDescription}")
+  meta(property="og:type" content="website")
+  meta(property="og:image" content="#{socialImageUrl}")
+  meta(property="og:url" content="#{myPath}")
+  meta(property="og:description" content="#{socialDescription}")
+  meta(name="twitter:card" content="summary")
+  meta(name="twitter:url" content="#{myPath}")
+  meta(name="twitter:title" content="#{title}")
+  meta(name="twitter:description" content="#{socialDescription}")
+  meta(name="twitter:image" content="#{socialImageUrl}")
+
+
 html
     head
       title #{title}
+      +seo
       +jquery
       +bootstrap
+      +fbSDK
       link(rel='stylesheet', href='/css/base.css')
     body
         block bodyContent

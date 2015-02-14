@@ -21,13 +21,26 @@ module.exports = function(app, passport) {
       res.render(
         'emulator',
         jadeObject.basic(req, "Chip-8 Emulator")
+        .setSocialDescription("Try out this Chip-8 Emulator written entirely in Javascript!")
+        .setSocialImgUrl("http://jerry-schneider.com/images/Invaders.png")
       );
     });
 
-    app.get('/wordGame', function (req, res) {
+    app.get('/wordWizard', function (req, res) {
       res.render(
         'wordGame',
-        jadeObject.basic(req, "Jerry's Word Game")
+        jadeObject.basic(req, "Word Wizard")
+        .setSocialDescription("Test your vocabulary with the hardest word game around!")
+        .setSocialImgUrl("http://jerry-schneider.com/images/wordWizard.png")
+      );
+    });
+
+    app.get('/wordWizardTutorial', function (req, res) {
+      res.render(
+        'wordGameTutorial',
+        jadeObject.basic(req, "Word Wizard Tutorial")
+        .setSocialDescription("Test your vocabulary with the hardest word game around!")
+        .setSocialImgUrl("http://jerry-schneider.com/images/wordWizard.png")
       );
     });
 
@@ -73,6 +86,10 @@ module.exports = function(app, passport) {
         'signup',
         jadeObject.basic(req, "Sign Up")
       )
+    });
+
+    app.get('/google62bc3c09f7c33d86.html', function(req, res) {
+      res.sendfile('static/google62bc3c09f7c33d86.html');
     });
 
     // process the login form

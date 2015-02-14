@@ -104,6 +104,10 @@ $(document).ready((function(){
 
     var inputElement = $('.userGuess');
 
+    if( !inputElement.length ){
+        return;
+    }
+
     inputElement.keypress(function(e){
         if (e.which == 13 || e.keyCode == 13) {
             w.makeGuess(inputElement.val().toLowerCase());
@@ -112,6 +116,7 @@ $(document).ready((function(){
 
     w.update();
 
+    console.log("interval");
     var interval = setInterval(function(){
         w.update();
     }, 1000);

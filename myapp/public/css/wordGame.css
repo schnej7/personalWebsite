@@ -1,8 +1,17 @@
 .head {
   width: 100%;
   text-align: center;
-  margin: 20px 0;
+  margin: 20px 0 10px;
   font-size: 2em;
+}
+
+.about {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.gameBody.example {
+  margin: 4px 0;
 }
 
 .gameBody .userName {
@@ -57,4 +66,9 @@
 }
 
 .gameBody .guesses {
+}
+
+.instructions {
+  width: 700px;
+  margin: 0 auto;
 }

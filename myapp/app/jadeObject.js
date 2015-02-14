@@ -1,6 +1,12 @@
 var moment = require('moment');
+var URL = require('url');
 
 function JadeObject(req){
+
+    this.myPath = "http://jerry-schneider.com"+URL.parse(req.originalUrl).pathname;
+
+    this.socialDescription = "Check out Jerry Schneider's website!";
+    this.socialImageUrl = "http://jerry-schneider.com/images/jerry2.jpg";
 
     this.year = (moment(Date.now())).format('YYYY');
 
@@ -11,6 +17,16 @@ function JadeObject(req){
 
     this.setUser = function(req) {
         this.user = req.user;
+        return this;
+    }
+
+    this.setSocialDescription = function(desc) {
+        this.socialDescription = desc;
+        return this;
+    }
+
+    this.setSocialImgUrl = function(url) {
+        this.socialImageUrl = url;
         return this;
     }
 

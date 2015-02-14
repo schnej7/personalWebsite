@@ -1,0 +1,52 @@
+extends static_layout
+
+mixin word(word, correctNum)
+    div.word
+        div.correctNum #{correctNum}
+        each letter, i in word
+            div(class="letter #{letter}") #{letter}
+
+block pageBody
+    link(rel='stylesheet', href='/css/wordGame.css')
+    script(src='js/wordGame/wordGame.js')
+    h2.head How to play Word Wizard
+
+    div.instructions 
+        h3.title The Goal
+        div.text The goal of Word Wizard is to guess a hidden 5 letter word.  Each round you have 5 minutes to guess the word, and every time you make a valid guess the timer resets to 5 minutes.  For each valid guess you will see a number which represents the number of letters in the guess that also appear in the answer.  Everyone playing is trying to guess the same word, the goal is for you to be the first person to guess it!
+
+        h3.title What makes a valid guess?
+        div.text There are a few constraints that constrain what is a valid guess.
+            ul
+                li 5 Letter words only
+                li No Repeat Letters - Each guess must contain 5 unique letters
+                li The guess must comply with the number of correct letters in each previous guess
+                li It must be a real word (The game dictionary is not perfect, sorry!)
+
+        h3.title Example
+        div.text To begin let's say you guess "wrist":
+            div.gameBody.example
+                div.guesses
+                    +word("wrist", 1)
+
+        div.text We now know that one of the letters W R I S T is in the word we are trying to guess.  Now our next guess must contain exactly one of those letters.  Our next guess can be "relay", because it shares only one letter with "wrist" (R).
+            div.gameBody.example
+                div.guesses
+                    +word("wrist", 1)
+                    +word("relay", 3)
+
+        div.text We now know that 3 of the letters R E L A Y are in the word we are trying to guess.  Now our next guess must containe exactly one letter from W R I S T and three letters from R E L A Y.  Our next guess cam be "brave" because it contains one letter from "wrist" (R) and three letters from "relay" (R E A).
+            div.gameBody.example
+                div.guesses
+                    +word("wrist", 1)
+                    +word("relay", 3)
+                    +word("brave", 5)
+
+        div.text Congratulations!  You guessed the word! 
+            a(href="/wordWizard") Now try playing with everyone else.
+
+        h3.title Tips
+        div.text Here are some helpful hints:
+            ul
+                li You can click on a letter to highlight every instance of that letter to visualize which letters you want to use.
+                li Other players can see your guesses and you can see theirs.  You can work together to figure out the answer!
