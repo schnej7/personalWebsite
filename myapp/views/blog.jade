@@ -1,0 +1,15 @@
+extends static_layout
+
+mixin blogLink(text, link)
+    a.blogLink(href="#{link}") #{text}
+
+block pageBody
+    link(rel='stylesheet', href='/css/blog.css')
+
+    div.blogBox
+        h1.head Recent Blog Posts
+
+        div.blogContent
+            +blogLink("Marvel Puzzle Quest Hero Highlight - The Hood","/blog/marvel-puzzle-quest-hero-highlight-the-hood")
+
+            +blogLink("Lorem ipsum","/blog/lorem-ipsum")

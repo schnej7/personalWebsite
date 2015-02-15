@@ -1,0 +1,35 @@
+extends ../static_layout
+
+mixin date(year, month, day)
+    div.date Published: #{month}/#{day}/#{year}
+
+mixin inlineFBShare(imageUrl, blogTitle, blogDescription)
+    if !imageUrl
+        - imageUrl = socialImageUrl
+    else
+        - imageUrl = "http://jerry-schneider.com" + imageUrl
+    if !blogTitle
+        - blogTitle = title
+    if !blogDescription
+        - blogDescription = socialDescription
+    div.fb-share(data-href="#{myPath}" data-image="#{imageUrl}" data-title="#{blogTitle}" data-desc="#{blogDescription}")
+        div.text Share on Facebook
+
+mixin inlinePhoto(path, alt, width)
+    img.inlinePhoto(src="#{path}" alt="#{alt}" width="#{width}")
+
+block pageBody
+    link(rel='stylesheet', href='/css/blog.css')
+
+    div.blogBox
+        h1.head
+            block blogTitle
+
+        div.info
+            block info
+
+        div.socialBar
+            block share
+
+        div.blogContent
+            block blogContent

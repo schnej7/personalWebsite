@@ -7,14 +7,14 @@ module.exports = function(app, passport) {
       res.render(
         'index',
         jadeObject.basic(req, 'Jerry Schneider')
-      );
+      )
     });
 
     app.get('/resume', function (req, res) {
       res.render(
         'resume',
         jadeObject.basic(req, "Jerry Schneider's Resume")
-      );
+      )
     });
 
     app.get('/emulator', function (req, res) {
@@ -23,7 +23,7 @@ module.exports = function(app, passport) {
         jadeObject.basic(req, "Chip-8 Emulator")
         .setSocialDescription("Try out this Chip-8 Emulator written entirely in Javascript!")
         .setSocialImgUrl("http://jerry-schneider.com/images/Invaders.png")
-      );
+      )
     });
 
     app.get('/wordWizard', function (req, res) {
@@ -32,7 +32,7 @@ module.exports = function(app, passport) {
         jadeObject.basic(req, "Word Wizard")
         .setSocialDescription("Test your vocabulary with the hardest word game around!")
         .setSocialImgUrl("http://jerry-schneider.com/images/wordWizard.png")
-      );
+      )
     });
 
     app.get('/wordWizardTutorial', function (req, res) {
@@ -41,7 +41,7 @@ module.exports = function(app, passport) {
         jadeObject.basic(req, "Word Wizard Tutorial")
         .setSocialDescription("Test your vocabulary with the hardest word game around!")
         .setSocialImgUrl("http://jerry-schneider.com/images/wordWizard.png")
-      );
+      )
     });
 
     app.get('/wordGameAjax', function (req, res) {
@@ -52,14 +52,14 @@ module.exports = function(app, passport) {
       res.render(
         'secrets',
         jadeObject.basic(req, "Secret Links")
-      );
+      )
     });
 
     app.get('/testing', function (req, res) {
       res.render(
         'testing',
         jadeObject.basic(req, "Testing Page")
-      );
+      )
     });
 
     app.get('/profile', isLoggedIn, function(req, res) {
@@ -85,6 +85,26 @@ module.exports = function(app, passport) {
       res.render(
         'signup',
         jadeObject.basic(req, "Sign Up")
+      )
+    });
+
+    app.get('/blog', function (req, res) {
+      res.render(
+        'blog',
+        jadeObject.basic(req, "Jerry's Blog")
+      )
+    });
+
+    app.get('/blog/*', function (req, res) {
+      filename = req.params[0];
+      if (!filename) {
+          return;
+      }
+      console.log("rendering partial at: ", filename);
+      res.render(
+        "blog/"+filename,
+        jadeObject.basic(req, filename)
+        .setSocialDescription("Read this article and more at jerry-schneider.com/blog!")
       )
     });
 

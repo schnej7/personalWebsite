@@ -19,6 +19,8 @@ mixin header
                         a(href='/resume') Resume
                     li
                         a(href='/wordWizard') Word Wizard
+                    li
+                        a(href='/blog') Blog
                     if auth == null
                         li.right
                             a(href='/login') Log In
@@ -41,4 +43,4 @@ mixin socialMedia
             div.fb-share.share(data-href="#{myPath}" data-image="#{socialImageUrl}" data-title="#{title}" data-desc="#{socialDescription}") f
         div.shareWrap
             a.twitter-share.share(href="https://twitter.com/share?text=&amp;url=#{myPath}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=260,width=600');return false;")
-                img.icon(src="/images/Twitter_logo_white.png")
+                img.icon(src="/images/Twitter_logo_white.png" alt="share on twitter")
