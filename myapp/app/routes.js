@@ -92,6 +92,7 @@ module.exports = function(app, passport) {
       res.render(
         'blog',
         jadeObject.basic(req, "Jerry's Blog")
+        .setSocialDescription("The most recent blog posts by Jerry Schneider are waiting to be read!")
       )
     });
 
