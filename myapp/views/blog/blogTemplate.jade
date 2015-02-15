@@ -18,6 +18,9 @@ mixin inlineFBShare(blogTitle, blogDescription, imageUrl)
 mixin inlinePhoto(path, alt, width)
     img.inlinePhoto(src="#{path}" alt="#{alt}" width="#{width}")
 
+mixin comments
+    div(class="fb-comments" data-href="#{myPath}" data-numposts="5" data-colorscheme="light" data-width="740")
+
 block pageBody
     link(rel='stylesheet', href='/css/blog.css')
 
@@ -33,3 +36,5 @@ block pageBody
 
         div.blogContent
             block blogContent
+        
+        +comments

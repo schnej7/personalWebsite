@@ -62,11 +62,11 @@ mixin seo
 
 html
     head
-      title #{title}
       if !customSEO
         +seo
       else
         block customHead
+      title #{title}
       +jquery
       +bootstrap
       +fbSDK
