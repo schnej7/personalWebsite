@@ -30,6 +30,11 @@ function JadeObject(req){
         return this;
     }
 
+    this.customSEO = function(isCustom) {
+        this.customSEO = isCustom;
+        return this;
+    }
+
     if( req.isAuthenticated() ) {
         this.auth = true;
         this.setUser(req);

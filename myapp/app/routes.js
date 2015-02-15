@@ -105,6 +105,7 @@ module.exports = function(app, passport) {
         "blog/"+filename,
         jadeObject.basic(req, filename)
         .setSocialDescription("Read this article and more at jerry-schneider.com/blog!")
+        .customSEO(true)
       )
     });
 

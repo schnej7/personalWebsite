@@ -16,6 +16,34 @@ mixin jquery
 mixin fbSDK()
     script(src="/js/social/facebook.js")
 
+mixin customSEO(seoTitle, desc, img, type)
+  if !seoTitle
+    - seoTitle = title
+  if !desc
+    - desc = socialDescription
+  if !img
+    - img = socialImageUrl
+  else
+    - img = "http://jerry-schneider.com"+img
+  if !type
+    - type = 'website'
+  - title = seoTitle
+  - socialDescription = desc
+  - socialImageUrl = img
+  meta(charset="utf-8")
+  meta(name="description" content="#{desc}")
+  link(rel="author" href="https://plus.google.com/104601552941402609417")
+  meta(property="og:title" content="#{desc}")
+  meta(property="og:type" content="#{type}")
+  meta(property="og:image" content="#{img}")
+  meta(property="og:url" content="#{myPath}")
+  meta(property="og:description" content="#{desc}")
+  meta(name="twitter:card" content="summary")
+  meta(name="twitter:url" content="#{myPath}")
+  meta(name="twitter:title" content="#{seoTitle}")
+  meta(name="twitter:description" content="#{desc}")
+  meta(name="twitter:image" content="#{img}")
+
 mixin seo
   meta(charset="utf-8")
   meta(name="description" content="#{socialDescription}")
@@ -35,7 +63,10 @@ mixin seo
 html
     head
       title #{title}
-      +seo
+      if !customSEO
+        +seo
+      else
+        block customHead
       +jquery
       +bootstrap
       +fbSDK

@@ -3,7 +3,7 @@ extends ../static_layout
 mixin date(year, month, day)
     div.date Published: #{month}/#{day}/#{year}
 
-mixin inlineFBShare(imageUrl, blogTitle, blogDescription)
+mixin inlineFBShare(blogTitle, blogDescription, imageUrl)
     if !imageUrl
         - imageUrl = socialImageUrl
     else

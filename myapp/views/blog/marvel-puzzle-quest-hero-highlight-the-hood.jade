@@ -1,5 +1,8 @@
 extends blogTemplate
 
+block customHead
+    +customSEO('Marvel Puzzle Quest Hero Highlight - The Hood', 'The Hood is one of the most featured 3 star heroes in Marvel Puzzle Quest...', '/images/the-hood-cover.png', 'article')
+
 block blogTitle
     | Marvel Puzzle Quest Hero Highlight - The Hood
 
@@ -7,7 +10,7 @@ block info
     +date(2015, 2, 14)
 
 block share
-    +inlineFBShare('/images/the-hood-cover.png', 'Marvel Puzzle Quest Hero Highlight - The Hood', 'The Hood is one of the most featured 3 star heroes in Marvel Puzzle Quest...')
+    +inlineFBShare
 
 block blogContent
     p
