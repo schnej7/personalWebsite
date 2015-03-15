@@ -2,7 +2,8 @@ extends base
 
 block bodyContent
     +header
-    +socialMedia
+    if socialEnabled
+        +socialMedia
 
     block pageBody
 

@@ -10,8 +10,15 @@ function JadeObject(req){
 
     this.year = (moment(Date.now())).format('YYYY');
 
+    this.socialEnabled = true;
+
     this.setTitle = function(a_title) {
         this.title = a_title;
+        return this;
+    }
+
+    this.setSocialEnabled = function(a_socialEnabled) {
+        this.socialEnabled = !!a_socialEnabled;
         return this;
     }
 
@@ -40,6 +47,11 @@ function JadeObject(req){
         this.setUser(req);
     }
 };
+
+exports.noSocial = function(req, title) {
+    var jo = new JadeObject(req);
+    return jo.setTitle(title).setSocialEnabled(false);
+}
 
 exports.basic = function(req, title) {
     var jo = new JadeObject(req);

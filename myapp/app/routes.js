@@ -132,6 +132,13 @@ module.exports = function(app, passport) {
     app.post('/', function (req, res) {
       res.send('Got a POST request');
     });
+
+    app.get('*', function(req, res){
+      res.status(404).render(
+        '404',
+        jadeObject.noSocial(req, "404")
+      )
+    });
 };
 
 // route from www to non-www
