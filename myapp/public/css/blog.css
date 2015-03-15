@@ -12,9 +12,15 @@ h1 {
   border-radius: 0 0 10px 10px;
 }
 
+.blogBox .photoGroup {
+  float: right;
+  max-width: 420px;
+}
+
 .blogBox .inlinePhoto {
   float: right;
   margin-left: 4px;
+  margin-bottom: 4px;
 }
 
 .blogBox .blogLink:hover {

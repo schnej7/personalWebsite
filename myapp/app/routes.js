@@ -3,21 +3,21 @@ module.exports = function(app, passport) {
     var wordGame = require('../my_modules/wordGame.js');
     var jadeObject = require('../app/jadeObject.js');
 
-    app.get('/', function (req, res) {
+    app.get('/', preReq, function (req, res) {
       res.render(
         'index',
         jadeObject.basic(req, 'Jerry Schneider')
       )
     });
 
-    app.get('/resume', function (req, res) {
+    app.get('/resume', preReq, function (req, res) {
       res.render(
         'resume',
         jadeObject.basic(req, "Jerry Schneider's Resume")
       )
     });
 
-    app.get('/emulator', function (req, res) {
+    app.get('/emulator', preReq, function (req, res) {
       res.render(
         'emulator',
         jadeObject.basic(req, "Chip-8 Emulator")
@@ -26,7 +26,7 @@ module.exports = function(app, passport) {
       )
     });
 
-    app.get('/wordWizard', function (req, res) {
+    app.get('/wordWizard', preReq, function (req, res) {
       res.render(
         'wordGame',
         jadeObject.basic(req, "Word Wizard")
@@ -35,7 +35,7 @@ module.exports = function(app, passport) {
       )
     });
 
-    app.get('/wordWizardTutorial', function (req, res) {
+    app.get('/wordWizardTutorial', preReq, function (req, res) {
       res.render(
         'wordGameTutorial',
         jadeObject.basic(req, "Word Wizard Tutorial")
@@ -44,18 +44,18 @@ module.exports = function(app, passport) {
       )
     });
 
-    app.get('/wordGameAjax', function (req, res) {
+    app.get('/wordGameAjax', preReq, function (req, res) {
       wordGame.handleRequest(req, res);
     });
 
-    app.get('/secrets', function (req, res) {
+    app.get('/secrets', preReq, function (req, res) {
       res.render(
         'secrets',
         jadeObject.basic(req, "Secret Links")
       )
     });
 
-    app.get('/testing', function (req, res) {
+    app.get('/testing', preReq, function (req, res) {
       res.render(
         'testing',
         jadeObject.basic(req, "Testing Page")
@@ -69,7 +69,7 @@ module.exports = function(app, passport) {
       )
     });
 
-    app.get('/logout', function(req, res) {
+    app.get('/logout', preReq, function(req, res) {
       req.logout();
       res.redirect('/login');
     });
@@ -88,7 +88,7 @@ module.exports = function(app, passport) {
       )
     });
 
-    app.get('/blog', function (req, res) {
+    app.get('/blog', preReq, function (req, res) {
       res.render(
         'blog',
         jadeObject.basic(req, "Jerry's Blog")
@@ -96,7 +96,7 @@ module.exports = function(app, passport) {
       )
     });
 
-    app.get('/blog/*', function (req, res) {
+    app.get('/blog/*', preReq, function (req, res) {
       filename = req.params[0];
       if (!filename) {
           return;
@@ -110,7 +110,7 @@ module.exports = function(app, passport) {
       )
     });
 
-    app.get('/google62bc3c09f7c33d86.html', function(req, res) {
+    app.get('/google62bc3c09f7c33d86.html', preReq, function(req, res) {
       res.sendfile('static/google62bc3c09f7c33d86.html');
     });
 
@@ -134,35 +134,32 @@ module.exports = function(app, passport) {
     });
 };
 
+// route from www to non-www
+function preReq(req, res, next) {
+    if (req.headers.host.match(/^www/) !== null ) {
+        res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url);
+    } else {
+        return next();     
+    }
+}
+
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on 
     if (req.isAuthenticated()) {
-        return next();
+        return preReq(req, res, next);
     }
 
     // if they aren't redirect them to the home page
     res.redirect('/login');
 }
 
-// route middleware to make sure a user is logged in
-function isLoggedInWordGame(req, res, next) {
-
-    // if user is authenticated in the session, carry on 
-    if (req.isAuthenticated()) {
-        return next();
-    }
-
-    // if they aren't redirect them to the home page
-    res.redirect('/wordGameNoAuth');
-}
-
 function isLoggedInLogin(req, res, next) {
 
     // if user is authenticated in the session, carry on 
     if (!req.isAuthenticated()) {
-        return next();
+        return preReq(req, res, next);
     }
 
     // if they aren't redirect them to the home page

@@ -5,7 +5,7 @@ function JadeObject(req){
 
     this.myPath = "http://jerry-schneider.com"+URL.parse(req.originalUrl).pathname;
 
-    this.socialDescription = "Check out Jerry Schneider's website!";
+    this.socialDescription = "Jerry Schneider's website has a lot of great games and articles.  Check out WordWizard, Marvel Puzzle Quest articles, emulators, and much more.";
     this.socialImageUrl = "http://jerry-schneider.com/images/jerry2.jpg";
 
     this.year = (moment(Date.now())).format('YYYY');
