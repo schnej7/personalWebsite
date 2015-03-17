@@ -9,6 +9,23 @@ h3
   -webkit-font-smoothing: antialiased;
 }
 
+a:hover
+{
+  -color: #6b67ef;
+  color: #df2626;
+  text-decoration: none;
+}
+
+a
+{
+  color: #1798cb;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+  background: none;
+}
+
 .jumbotron {
   background-image: url('/images/pano.jpg');
   background-repeat: no-repeat;
