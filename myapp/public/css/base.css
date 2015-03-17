@@ -1,3 +1,14 @@
+p,
+div,
+span,
+h1,
+h2,
+h3
+{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
 .jumbotron {
   background-image: url('/images/pano.jpg');
   background-repeat: no-repeat;
@@ -100,8 +111,9 @@
 }
 
 .navbar-fixed-top {
+  position: absolute;
   background: #fff;
-  box-shadow: 0 0 2px rgba(0,0,0,0.4);
+  border-bottom: 1px solid #ddd;
   overflow: hidden;
 }
 
