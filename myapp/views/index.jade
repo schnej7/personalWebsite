@@ -1,41 +1,37 @@
 extends static_layout
 
+mixin linkBox(url, imageUrl, title, desc)
+    if( imageUrl != '' )
+        a.linkBox(href="#{url}", style="background-image:url('#{imageUrl}')")
+            div.title #{title}
+            div.desc #{desc}
+    else
+        a.linkBox.colored(href="#{url}")
+            div.title #{title}
+            div.desc #{desc}
+
 block pageBody
+    script(src="/js/base/scroller.js")
     div.jumbotron
         div.container
-            h1 Jerry's Homepage
-            p Next level web development
+            h1 Jerry Schneider
+            p Next level web developer
+
+    div.scrollingUnit
+        div.scroller.left <
+        div.linkCarousel
+            div.linkHolder
+                +linkBox('/wordWizard', '/images/wordWizard.png', 'Word Wizard', 'The hardest multiplayer vocabulary game you will ever play written in javascript on node.js.')
+                +linkBox('http://schnej7.github.io/InstagramApiJavascriptLib/', '/images/instagram-icon.png', 'Instagram API Javascript Lib', 'A web portal for viewing your instagram pictures.')
+                +linkBox('https://robotgame.net/user/9513', '/images/robotgame.png', 'Robot Game', 'My AIs for a game where robots fight each other.')
+                +linkBox('https://github.com/schnej7/markov', '/images/markov.jpeg', 'Python Markov Lib', 'A Marcov chain library and some fun word games which use it.')
+                +linkBox('http://www.rpscontest.com/authorSearch?name=Jerry', '/images/rps.png', 'RPS Contest', 'My AIs for a simulation where 2 opponents play 1,000 games of "Rock, Paper, Scissors" against each other.')
+                +linkBox('/emulator', '/images/Invaders.png', 'Chip8 Emulator', 'A Chip8 emulator written in javascript including some fun games.')
+                +linkBox('https://github.com/schnej7/Blue-Mesh', '/images/BlueMesh-icon.png', 'BlueMesh', 'An Android library which uses Bluetooth to create a wireless MESH network')
+        div.scroller.right >
 
     div.container
         div.row
-            div.col-md-4
-                h2 Projects
-                p
-                    |Check out my open source projects on 
-                    a(href='https://github.com/schnej7') GitHub.
-                    ul
-                        li
-                            a(href='/wordWizard') Word Wizard
-                            | - The hardest multiplayer vocabulary game you will ever play written in javascript on node.js.
-                        li
-                            a(href='/emulator') Chip8 Emulator 
-                            | - A Chip8 emulator written in javascript including some fun games.
-                        li
-                            a(href='http://schnej7.github.io/InstagramApiJavascriptLib/') Instagram API Javascript Lib 
-                            | - A web portal for viewing your instagram pictures.
-                        li
-                            a(href='https://robotgame.net/user/9513') Robot Game 
-                            | - My AIs for a game where robots fight each other.
-                        li
-                            a(href='http://www.rpscontest.com/authorSearch?name=Jerry') RPS Contest 
-                            | - My AIs for a simulation where 2 opponents play 1,000 games of "Rock, Paper, Scissors" against each other.
-                        li
-                            a(href='https://github.com/schnej7/markov') Python Markov Lib 
-                            | - A Marcov chain library and some fun word games which use it.
-                        li
-                            a(href='https://github.com/schnej7/Blue-Mesh') BlueMesh 
-                            | - An Android library which uses Bluetooth to create a wireless MESH network 
-                            a(href='https://play.google.com/store/apps/details?id=com.bluemesh.bmchat&hl=en') and example app.
             div.col-md-4
                 h2 About Me
                 p 
@@ -45,6 +41,16 @@ block pageBody
                     a(href='/resume') Check out my Resume too.
                 h2 Contact Me
                 p
-                    |You can contact me via email at schnej7[at]gmail[dot]com.
+                    |You can contact me via email at 
+                    a(href="mailto:schnej7@gmail.com") schnej7@gmail.com
+                    |.
+            div.col-md-4
+                h2 Other Projects
+                p
+                    |Check out my open source projects on 
+                    a(href='https://github.com/schnej7') GitHub.
+                    ul
+                        li
+                            a(href='https://play.google.com/store/apps/details?id=com.bluemesh.bmchat&hl=en') BM Chat - An example BlueMesh app on the play store.
             div.col-md-4
                 img(src="/images/jerry2.jpg" alt="Jerry Schneider").headshot
