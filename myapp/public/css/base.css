@@ -251,3 +251,27 @@ a
 footer {
   margin-bottom: 20px;
 }
+
+.imageFade .ghost img {
+  position: relative;
+  visibility: hidden;
+}
+
+.imageFade .hover img:hover {
+  opacity: 0;
+}
+
+.imageFade img {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.imageFade {
+  position: relative;
+  height: 100%;
+}

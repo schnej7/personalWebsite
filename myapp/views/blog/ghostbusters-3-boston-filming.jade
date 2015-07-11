@@ -1,0 +1,34 @@
+extends blogTemplate
+
+block customHead
+    +customSEO('Film crews take over the streets of Boston for the filming of Ghostbusters 3', 'Film crews were filming scenes for Ghostbusters 3 today in front of the Bank of America at 100 Federal Street in Boston.  Federal Street was closed down...', '/images/ghostbusters1.jpg', 'article')
+
+block blogTitle
+    | Film crews take over the streets of Boston for the filming of Ghostbusters 3
+
+block info
+    +date(2015, 7, 11)
+
+block share
+    +inlineFBShare
+
+block blogContent
+    p
+        | Film crews were filming scenes for Ghostbusters 3 today in front of the Bank of America at 100 Federal Street in Boston.  Federal Street was closed down one block in each direction on Federal Street and pedestrians were prohibited from walking through the shoot as well.  The film's stars include Melissa McCarthy, Chris Hemsworth, Kristen Wiig, Anna Faris, and Sigourney Weaver with a cameo by Bill Murray.  We had a bird's eye view from an undisclosed location directly across the street from the Bank of America.
+    +inlinePhoto('/images/ghostbusters1.jpg', 'Filming of the new Ghostbusters 3 movie in Boston on Federal Street', 740)
+    p
+        | Just three days earlier in the same exact location an MBTA bus caught fire, it was not part of the filming.  
+        a(href="http://www.whdh.com/story/29504361/mbta-bus-catches-fire-on-federal-street") MBTA bus catches fire on Federal Street.
+    +inlinePhoto('/images/ghostbusters5.jpg', 'Shot of a Ghostbusters 3 movie set in Boston', 740)
+    p
+        | Interestingly, most of the cars on Federal Street had New York license plates so we can assume that the movie will take place in New York City.
+    +inlinePhoto('/images/ghostbusters2.jpg', 'Extras in the streets of Boston filming Ghostbusters 3', 740)
+    p
+        | The Stay Puft Marshmallow Man was nowhere to be found.
+    +inlinePhoto('/images/ghostbusters3.jpg', 'Movie equiptment for Ghostbusters 3 in theaters in 2016', 740)
+    p
+        | I think I see the keymaster, and is that the gatekeeper?
+    +inlinePhoto('/images/ghostbusters4.jpg', 'Filming of the new Ghostbusters 3 movie on Federal Street in Boston', 740)
+    p
+        | Nobody's getting slimed today.
+    +inlinePhoto('/images/ghostbusters6.jpg', 'Film crews take over the streets of Boston for the filming of Ghostbusters 3', 740)
