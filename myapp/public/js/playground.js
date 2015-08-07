@@ -4,7 +4,7 @@ function rand(min,max)
 }
 
 $(document).ready(function(){
-    $('.top, .mapCTA, .list.alternate .listing').click(function(){
+    $('.top, .inlineMap, .list.alternate .listing').click(function(){
         var filterHeight = $('.filters').height();
         var height = $('.filters').hasClass('mapMode') ? "initial" : filterHeight+1+"px";
         $('.container').css({"height": height});

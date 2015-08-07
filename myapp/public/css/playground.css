@@ -59,9 +59,20 @@ div::after {
   pointer-events: none;
 }
 
+.inlineMap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 33%;
+  background-image: url('/images/map-img.png');
+  background-size: cover;
+}
+
 .filters {
+  float: left;
   z-index: 3;
-  width: 30%;
+  width: 20%;
 }
 
 .filters .filter {
@@ -79,8 +90,9 @@ div::after {
 
 .list {
   z-index: 1;
-  width: 67%;
-  float: right;
+  width: 47%;
+  margin-left: 2%;
+  float: left;
 }
 
 .list.alternate {
