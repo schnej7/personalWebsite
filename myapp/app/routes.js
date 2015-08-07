@@ -55,6 +55,13 @@ module.exports = function(app, passport) {
       )
     });
 
+    app.get('/playground', preReq, function (req, res) {
+      res.render(
+        'playground',
+        jadeObject.basic(req, "Playground")
+      )
+    });
+
     app.get('/testing', preReq, function (req, res) {
       res.render(
         'testing',
