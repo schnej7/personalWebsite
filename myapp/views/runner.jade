@@ -1,0 +1,20 @@
+extends static_layout
+
+block bodyContent
+    div.gameArea
+      canvas#myCanvas(height="600" width="1000")
+      div.debug
+      div.in_a_row_box.shadow
+      div.score
+      div.finalScore.hidden.shadow 
+        |Score:
+        span.scoreString
+        br 
+        |Best:
+        span.bestScoreString
+
+block customHead
+    script(src="js/runner/jquery.js")
+    script(src="js/runner/game.js")
+    script(src="js/runner/paper-full.min.js")
+    link(rel="stylesheet" type="text/css" href="css/runner/game.css")
