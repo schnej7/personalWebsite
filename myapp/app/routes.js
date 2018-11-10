@@ -88,6 +88,13 @@ module.exports = function(app, passport) {
       )
     });
 
+    app.get('/cloudRocket', preReq, function(req, res) {
+      res.render(
+        'runner',
+        jadeObject.basic(req, "Cloud Rocket")
+      )
+    });
+
     app.get('/signup', isLoggedInLogin, function(req, res) {
       res.render(
         'signup',
