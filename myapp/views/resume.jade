@@ -25,11 +25,6 @@ block pageBody
             h1 Jerry Schneider
             table
                 tr
-                    td
-                        address
-                            | Apt. 1H
-                            | 10 Centre St.
-                            | Cambridge, MA 01239
                     td.rightCol
                         a(href="tel://1-703-963-9570") (703) 963 9570
                         br
@@ -38,13 +33,16 @@ block pageBody
         div.content
             table
                 +tableSectionTitle("Employment")
-                +tableThreeCol("Software Engineer", "TripAdvisor, Newton, MA", "January 2014 - Present")
+                +tableThreeCol("Software Engineer / Tech Lead", "TripAdvisor, Newton, MA", "January 2014 - Present")
                 tr
                     td
                         ul
+                            li Provide technical leadership for between 1 and 3 other engineers on consumer facing restaurants products
+                            li Develop commerce integration with partners such as OpenTable, GrubHub, and LaFourchette
+                            li Develop consumer facing restaurants products including UI/UX improvements as well as data and infrastructural driven projects
+                            li Work on optimizing the restaurant booking process
                             li Redesign and rewrite the photo lightbox experience
                             li Work on and maintain media on a large scale
-                            li Work on optimizing the restaurant booking process
                             li Work on generally improving the site experience
                             li Work on internal tools to help optimize development for other engineers
 
@@ -74,6 +72,10 @@ block pageBody
                     td
                         ul
                             li Create a C++ library to interface with LabView and ActiveMQ to display satelite telemetry
+
+                +tableSectionTitle("Education")
+                +tableThreeCol("Master of Science", "Information Technology and Web Science RPI", "December 2013")
+                +tableThreeCol("Bachelor of Science", "Computer Science RPI", "May 2013")
 
                 +tableSectionTitle("Relevant Coursework")
                 +tableTwoCol("Network Programming", "Knowladge of HTTP and socket programming and JavaScript and HTML 5")
@@ -105,6 +107,7 @@ block pageBody
                             li Hollingsworth Prize
                             li Dean's list (every semester)
                             li Rensselaer Leadership Award
+                            li TripAdvisor standup comedy competition finalist
 
                 +tableSectionTitle("Computer Science Academic Experience")
                 tr

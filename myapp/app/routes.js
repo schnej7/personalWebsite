@@ -88,6 +88,13 @@ module.exports = function(app, passport) {
       )
     });
 
+    app.get('/cloudRocket', preReq, function(req, res) {
+      res.render(
+        'runner',
+        jadeObject.basic(req, "Cloud Rocket")
+      )
+    });
+
     app.get('/signup', isLoggedInLogin, function(req, res) {
       res.render(
         'signup',
@@ -119,6 +126,10 @@ module.exports = function(app, passport) {
 
     app.get('/google62bc3c09f7c33d86.html', preReq, function(req, res) {
       res.sendfile('static/google62bc3c09f7c33d86.html');
+    });
+
+    app.get('/HOME_IP', preReq, function(req, res) {
+      res.render('HOME_IP');
     });
 
     // process the login form
